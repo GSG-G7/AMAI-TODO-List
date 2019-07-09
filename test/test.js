@@ -1,7 +1,7 @@
 const test = require('tape');
 const todoFunctions = require('../JS/logic');
 
-var state = [
+const state = [
     { id: -3, description: 'first todo' },
     { id: -2, description: 'second todo' },
     { id: -1, description: 'third todo' },
