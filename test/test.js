@@ -31,36 +31,31 @@ test("testing for delete", (t)=> {
 });
 
 test("Test of the state array with addTodo function" , (t)=> {
-    let expected = [
+    const expected1 = [
         { id: -3, description: 'first todo' },
         { id: -2, description: 'second todo' },
         { id: -1, description: 'third todo' },
         { id: 1, description: 'how are you' , done: false},
     ]
-    let stateBeforeTest = todoFunctions.cloneArrayOfObjects(state);
-    
-    
-    t.deepEqual(todoFunctions.addTodo(state , 'how are you') , expected , "first add test");
-
-    t.deepEqual(state, stateBeforeTest,"add function didnt change on the input(pure function)")
-
-    expected = [
+    const expected2 = [
         { id: -3, description: 'first todo' },
         { id: -2, description: 'second todo' },
         { id: -1, description: 'third todo' },
         { id: 2, description: 'thank you' , done: false},
     ]
-
-    t.deepEqual(todoFunctions.addTodo(state , 'thank you') , expected , "second add test");
-
-    expected = [
+    const expected3 = [
         { id: -3, description: 'first todo' },
         { id: -2, description: 'second todo' },
         { id: -1, description: 'third todo' },
         { id: 3, description: 'you are welcome' , done: false},
     ]
 
-    t.deepEqual(todoFunctions.addTodo(state , 'you are welcome') , expected , "third add test");
+    const stateBeforeTest = todoFunctions.cloneArrayOfObjects(state);
+    
+    t.deepEqual(todoFunctions.addTodo(state , 'how are you') , expected1 , "first add test");
+    t.deepEqual(state, stateBeforeTest,"add function didnt change on the input(pure function)")
+    t.deepEqual(todoFunctions.addTodo(state , 'thank you') , expected2 , "second add test");
+    t.deepEqual(todoFunctions.addTodo(state , 'you are welcome') , expected3 , "third add test");
 
     t.end();
 })
