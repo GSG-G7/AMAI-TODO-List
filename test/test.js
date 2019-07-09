@@ -13,20 +13,21 @@ test("example test", t => {
 });
 
 test("testing for delete", (t)=> {
-    let expected = [ { id: -3, description: 'first todo' },{ id: -2, description: 'second todo' }];
-    let actual = todoFunctions.deleteTodo(state, -1);
-    let originalState = todoFunctions.cloneArrayOfObjects(state);
+    const expected1 = [ { id: -3, description: 'first todo' },{ id: -2, description: 'second todo' }];
+    const actual1 = todoFunctions.deleteTodo(state, -1);
+    let stateBeforeTest = todoFunctions.cloneArrayOfObjects(state);
 
-    t.deepEqual(state, originalState,"delete function must be pure");
-    t.deepEqual(actual, expected, 'should delete todo.id');
+    t.deepEqual(actual1, expected1, 'should delete todo.id');
+    t.deepEqual(state, stateBeforeTest,"delete function must be pure");
 
-    state = [
+    const newState = [
         { id: -3, description: 'first todo' },
         { id: -2, description: 'second todo' }
     ]
-    expected = [ { id: -3, description: 'first todo' }];
-    actual = todoFunctions.deleteTodo(state, -2);
-    t.deepEqual(actual, expected, 'should delete todo.id');
+    const expected2 = [ { id: -3, description: 'first todo' }];
+    const actual2 = todoFunctions.deleteTodo(newState, -2);
+    t.deepEqual(actual2, expected2, 'should delete todo.id');
+    t.deepEqual(state, stateBeforeTest,"delete function must be pure");
     t.end();
 });
 
