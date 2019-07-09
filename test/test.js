@@ -52,10 +52,10 @@ test("Test of the state array with addTodo function" , (t)=> {
 
     const stateBeforeTest = todoFunctions.cloneArrayOfObjects(state);
     
-    t.deepEqual(todoFunctions.addTodo(state , 'how are you') , expected , "first add test");
+    t.deepEqual(todoFunctions.addTodo(state , 'how are you') , expected1 , "first add test");
     t.deepEqual(state, stateBeforeTest,"add function didnt change on the input(pure function)")
-    t.deepEqual(todoFunctions.addTodo(state , 'thank you') , expected , "second add test");
-    t.deepEqual(todoFunctions.addTodo(state , 'you are welcome') , expected , "third add test");
+    t.deepEqual(todoFunctions.addTodo(state , 'thank you') , expected2 , "second add test");
+    t.deepEqual(todoFunctions.addTodo(state , 'you are welcome') , expected3 , "third add test");
 
     t.end();
 })
