@@ -31,7 +31,7 @@ test("Test of the state array with addTodo function" , (t)=> {
         { id: -3, description: 'first todo' },
         { id: -2, description: 'second todo' },
         { id: -1, description: 'third todo' },
-        { id: 1, description: 'thank you' , done: false},
+        { id: 2, description: 'thank you' , done: false},
     ]
 
     t.deepEqual(todoFunctions.addTodo(state , 'thank you') , expected , "second add test");
@@ -40,7 +40,7 @@ test("Test of the state array with addTodo function" , (t)=> {
         { id: -3, description: 'first todo' },
         { id: -2, description: 'second todo' },
         { id: -1, description: 'third todo' },
-        { id: 1, description: 'you are welcome' , done: false},
+        { id: 3, description: 'you are welcome' , done: false},
     ]
 
     t.deepEqual(todoFunctions.addTodo(state , 'you are welcome') , expected , "third add test");
