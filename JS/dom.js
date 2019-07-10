@@ -78,25 +78,76 @@
 
       });
     }
-    // add load();
-    // add save();
-    // you should not need to change this function
-    var update = function(newState) {
-      state = newState;
-      renderState(state);
-    };
 
-    // you do not need to change this function
-    var renderState = function(state) {
-      var todoListNode = document.createElement('ul');
-  
-      state.forEach(function(todo) {
-        todoListNode.appendChild(createTodoNode(todo));
-      });
-  
-      // you may want to add a class for css
-      container.replaceChild(todoListNode, container.firstChild);
-    };
-  
-    if (container) renderState(state);
-  })();
+    delIcon.className = 'fas fa-trash-alt';
+
+    //Apend child
+    descDiv.appendChild(descSpan);
+    iconDiv.appendChild(checkIcon);
+    iconDiv.appendChild(delIcon);
+
+    todoNode.appendChild(descDiv);
+    todoNode.appendChild(iconDiv);
+
+    //Fill information by todo object
+    descSpan.textContent = todo.description;
+
+    delIcon.addEventListener('click', function(event) {
+      var newState = todoFunctions.deleteTodo(state, todo.id);
+
+      update(newState);
+    });
+    /* mark btn */
+    checkIcon.addEventListener('click', function(event) {
+      var newState = todoFunctions.markTodo(state, todo.id);
+      update(newState);
+    });
+    return todoNode;
+  };
+
+  // bind create todo form
+  if (addTodoForm) {
+    addTodoForm.addEventListener('submit', function(event) {
+      // https://developer.mozilla.org/en-US/docs/Web/Events/submit
+      // what does event.preventDefault do?
+      // what is inside event.target?
+      event.preventDefault();
+      const inputText = document.querySelector('input[name=description]').value;
+      
+      if(inputText){
+
+        console.log(inputText);
+        
+        var newState = todoFunctions.addTodo(state , inputText); // ?? change this!
+        update(newState);
+      }
+
+      // hint: todoFunctions.addTodo
+      //Reset Value
+      document.querySelector('input[name=description]').value = "";
+
+    });
+  }
+  // add load();
+  // add save();
+  // you should not need to change this function
+  var update = function(newState) {
+    state = newState;
+    renderState(state);
+  };
+
+  // you do not need to change this function
+  var renderState = function(state) {
+    var todoListNode = document.createElement('ul');
+
+    state.forEach(function(todo) {
+      todoListNode.appendChild(createTodoNode(todo));
+    });
+
+    // you may want to add a class for css
+   
+    container.replaceChild(todoListNode, container.firstChild);
+  };
+
+  if (container) renderState(state);
+})();

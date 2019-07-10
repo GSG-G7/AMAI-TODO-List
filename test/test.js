@@ -93,20 +93,84 @@ test("testing for markTodo",(t)=>{
 // start test sorting function alaa && mohammad
 
 test("testing for sort function", t=>{
-    const unSort = [
-    { id: -3, description: 'second todo', done: false},
-    { id: -2, description: 'third todo', done: false},
-    { id: -1, description: 'first todo', done: false},
+    const unSort1 = [
+        { id: -3, description: 'second todo', done: false},
+        { id: -2, description: 'third todo', done: false},
+        { id: -1, description: 'first todo', done: false},
     ];
-    const unSortPure = todoFunctions.cloneArrayOfObjects(unSort);
-    const expected1 = [
-    { id: -1, description: 'first todo', done: false},
-    { id: -3, description: 'second todo', done: false},
-    { id: -2, description: 'third todo', done: false},
+    const unSort2 = [
+        { id: -3, description: 'c todo', done: false},
+        { id: -2, description: 'z todo', done: false}, 
+        { id: -16, description: 'b todo', done: false},
+        { id: -12, description: 'a todo', done: false},
+        { id: -14, description: 'b dodo', done: false},
+        { id: -1, description: 'c todo', done: false},
+        ];
+    const unSort3 = [
+        { id: -3, description: 'c todo', done: false},
+        { id: -2, description: 'z too', done: false},
+        { id: -12, description: 'odo', done: false},
+        { id: -14, description: 'b tdo', done: false},
+        { id: -16, description: 'b todo', done: false},
+        { id: -1, description: 'c todo', done: false},
+        ];
+
+
+    const expected1 = [  
+        { id: -1, description: 'first todo', done: false},
+        { id: -3, description: 'second todo', done: false},
+        { id: -2, description: 'third todo', done: false},
     ];
-    const actual1 = todoFunctions.sortTodos(unSortPure,todoFunctions.sortFunction);
-    
-    t.deepEqual(actual1,expected1,"array should be sorted : first todo , second todo, third todo");
+    const expected2 = [
+        { id: -12, description: 'a todo',  done: false},
+        { id: -14, description: 'b dodo', done: false},
+        { id: -16, description: 'b todo', done: false},
+        { id: -3, description: 'c todo', done: false},
+        { id: -1, description: 'c todo', done: false},
+        { id: -2, description: 'z todo', done: false}, 
+        ];
+    const expected3 = [
+        { id: -14, description: 'b tdo', done: false},
+        { id: -16, description: 'b todo', done: false},
+        { id: -3, description: 'c todo', done: false},
+        { id: -1, description: 'c todo', done: false},
+        { id: -12, description: 'odo', done: false},
+        { id: -2, description: 'z too', done: false},
+        ];
+
+
+    const actual1 = todoFunctions.sortTodos(unSort1,todoFunctions.sortFunction);
+    const actual2 = todoFunctions.sortTodos(unSort2,todoFunctions.sortFunction);
+    const actual3 = todoFunctions.sortTodos(unSort3,todoFunctions.sortFunction);
+    const unSort1Pure = todoFunctions.cloneArrayOfObjects(unSort1);
+
+    t.deepEqual(actual1,expected1,"array should be sorted");
+    t.deepEqual(unSort1,unSort1Pure,"sort function didnt change on the input(pure function)");
+    t.deepEqual(actual2,expected2,"array should be sorted");
+    t.deepEqual(actual3,expected3,"array should be sorted");
     t.end();
     });
     // end testing for sorting function
+test("testing for edit function",t=>{
+    const stateBeforeTest = todoFunctions.cloneArrayOfObjects(state);
+    const expected1 = [
+        { id: -3, description: 'new first todo', done: false},
+        { id: -2, description: 'second todo', done: false},
+        { id: -1, description: 'third todo', done: false},
+      ]; 
+    const expected2 = [
+        { id: -3, description: 'first todo', done: false},
+        { id: -2, description: 'new second todo', done: false},
+        { id: -1, description: 'third todo', done: false},
+      ]; 
+    const expected3 = [
+        { id: -3, description: 'first todo', done: false},
+        { id: -2, description: 'second todo', done: false},
+        { id: -1, description: 'new third todo', done: false},
+      ]; 
+    t.deepEquals(todoFunctions.editTodo(state,'new first todo',-3),expected1,"id -3 edit test");
+    t.deepEquals(state,stateBeforeTest,"mark function didnt change on the input(pure function)");
+    t.deepEquals(todoFunctions.editTodo(state,'new second todo',-2),expected2,"id -2 edit test");
+    t.deepEquals(todoFunctions.editTodo(state,'new third todo',-1),expected3,"id -1 edit test");
+    t.end();
+})
