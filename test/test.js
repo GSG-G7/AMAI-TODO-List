@@ -151,3 +151,26 @@ test("testing for sort function", t=>{
     t.end();
     });
     // end testing for sorting function
+test("testing for edit function",t=>{
+    const stateBeforeTest = todoFunctions.cloneArrayOfObjects(state);
+    const expected1 = [
+        { id: -3, description: 'new first todo', done: false},
+        { id: -2, description: 'second todo', done: false},
+        { id: -1, description: 'third todo', done: false},
+      ]; 
+    const expected2 = [
+        { id: -3, description: 'first todo', done: false},
+        { id: -2, description: 'new second todo', done: false},
+        { id: -1, description: 'third todo', done: false},
+      ]; 
+    const expected3 = [
+        { id: -3, description: 'first todo', done: false},
+        { id: -2, description: 'second todo', done: false},
+        { id: -1, description: 'new third todo', done: false},
+      ]; 
+    t.deepEquals(todoFunctions.editTodo(state,'new first todo',-3),expected1,"id -3 edit test");
+    t.deepEquals(state,stateBeforeTest,"mark function didnt change on the input(pure function)");
+    t.deepEquals(todoFunctions.editTodo(state,'new second todo',-2),expected2,"id -2 edit test");
+    t.deepEquals(todoFunctions.editTodo(state,'new third todo',-1),expected3,"id -1 edit test");
+    t.end();
+})
