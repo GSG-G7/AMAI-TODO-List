@@ -96,6 +96,13 @@ section {
     border-bottom-left-radius: 10px;
 
 }
+.todoSec__task .editInput {
+    width: 100%;
+    padding: 0px 10px;
+    margin: 0%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
 
 .todoSec__task .icon-div {
     width: 15%;
