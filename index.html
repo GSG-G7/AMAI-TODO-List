@@ -7,18 +7,23 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" 
     crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Sniglet&display=swap" rel="stylesheet">
   </head>
   <body>
-
-    <form id="add-todo">
-      <input type="text" name="description" value="">
-      <input type="submit" name="" value="Submit">
-    </form>
-
-    <div id = "todo-container">
-      <ul>
-      </ul>
-    </div>
+    <section >
+      <div class="todoSec">
+        <h2 class="todoSec__title">Organize Your Tasks</h2>
+        <form class="todoSec__form" id="add-todo">
+          <input  type="text" name="description" value="">
+          <input type="submit" name="" value="Submit">
+        </form>
+    
+        <div class="todoSec__task" id = "todo-container">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </section>
   </body>
   <script type="text/javascript" src = "./JS/logic.js"></script>
   <script type="text/javascript" src = "./JS/dom.js"></script>
