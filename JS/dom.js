@@ -26,6 +26,9 @@
       const delIcon   = document.createElement('I');
 
       // add classes for css
+      todoNode.className = 'task';
+      descDiv.className = 'desc-div';
+      iconDiv.className = 'icon-div'
       checkIcon.className = 'far fa-check-square';
       delIcon.className = 'fas fa-trash-alt';
 
