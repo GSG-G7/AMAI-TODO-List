@@ -59,6 +59,7 @@
       update(newState);
     });
      // edit event lestener
+     if(!todo.done)
      descDiv.addEventListener("dblclick",function(event){
       var inputNew = document.createElement('input');
       descDiv.removeChild(descSpan);
