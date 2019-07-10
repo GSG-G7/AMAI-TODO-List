@@ -44,6 +44,11 @@
         var newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
       });
+      /* mark btn */
+      checkIcon.addEventListener('click', function(event) {
+        var newState = todoFunctions.markTodo(state, todo.id);
+        update(newState);
+      });
       return todoNode;
     };
   
