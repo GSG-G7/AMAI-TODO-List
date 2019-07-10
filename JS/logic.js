@@ -85,6 +85,9 @@ var todoFunctions = {
       const newTodos = todoFunctions.cloneArrayOfObjects(todos);
       return newTodos.sort(sortFunction);
     },
+    completeTodo:function(todos){
+
+    }
   };
   
   
