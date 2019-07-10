@@ -68,12 +68,22 @@ var todoFunctions = {
 
       return newTodos;
   
+    },sortFunction : function(task1,task2){
+      if(task1.description.toLowerCase()>task2.description.toLowerCase()){
+          return 1;
+      }
+      if(task1.description.toLowerCase()<task2.description.toLowerCase()){
+          return -1;
+      }
+      return 0;
     },
     sortTodos: function(todos, sortFunction) {
       // stretch goal! Do this last
       // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
       // sortFunction will have same signature as the sort function in array.sort
       // hint: array.slice, array.sort
+      const newTodos = todoFunctions.cloneArrayOfObjects(todos);
+      return newTodos.sort(sortFunction);
     },
   };
   
