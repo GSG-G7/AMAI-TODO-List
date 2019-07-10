@@ -85,16 +85,6 @@ var todoFunctions = {
       const newTodos = todoFunctions.cloneArrayOfObjects(todos);
       return newTodos.sort(sortFunction);
     },
-    editTodo: function(todos,newDescription,idToEdit){
-      const newTodos = todoFunctions.cloneArrayOfObjects(todos);
-      newTodos.forEach((e)=> {
-        if(e.id === idToEdit){
-          e.description = newDescription;
-        }
-        return e;
-      });
-      return newTodos
-    }
   };
   
   
