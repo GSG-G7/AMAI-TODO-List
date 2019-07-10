@@ -18,19 +18,34 @@
       // you will need to use addEventListener
   
       // add span holding description
+      const descDiv   = document.createElement('DIV');
+      const descSpan  = document.createElement('SPAN');
+
+      const iconDiv   = document.createElement('DIV');
+      const checkIcon = document.createElement('I');
+      const delIcon   = document.createElement('I');
+
+      // add classes for css
+      checkIcon.className = 'far fa-check-square';
+      delIcon.className = 'fas fa-trash-alt';
+
+      //Apend child
+      descDiv.appendChild(descSpan);
+      iconDiv.appendChild(checkIcon);
+      iconDiv.appendChild(delIcon);
+
+      todoNode.appendChild(descDiv);
+      todoNode.appendChild(iconDiv);
+
+      //Fill information by todo object
+      descSpan.textContent = todo.description;
   
       // this adds the delete button
-      var deleteButtonNode = document.createElement('button');
-      deleteButtonNode.addEventListener('click', function(event) {
+      // var deleteButtonNode = document.createElement('button');
+      delIcon.addEventListener('click', function(event) {
         var newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
       });
-      todoNode.appendChild(deleteButtonNode);
-  
-      // add markTodo button
-  
-      // add classes for css
-  
       return todoNode;
     };
   
