@@ -89,3 +89,24 @@ test("testing for markTodo",(t)=>{
     t.deepEqual(todoFunctions.markTodo(state, -3),expected3,"marking id -3 test");
     t.end();
 })
+
+// start test sorting function alaa && mohammad
+
+test("testing for sort function", t=>{
+    const unSort = [
+    { id: -3, description: 'second todo', done: false},
+    { id: -2, description: 'third todo', done: false},
+    { id: -1, description: 'first todo', done: false},
+    ];
+    const unSortPure = todoFunctions.cloneArrayOfObjects(unSort);
+    const expected1 = [
+    { id: -1, description: 'first todo', done: false},
+    { id: -3, description: 'second todo', done: false},
+    { id: -2, description: 'third todo', done: false},
+    ];
+    const actual1 = todoFunctions.sortTodos(unSortPure,todoFunctions.sortFunction);
+    
+    t.deepEqual(actual1,expected1,"array should be sorted : first todo , second todo, third todo");
+    t.end();
+    });
+    // end testing for sorting function
