@@ -76,73 +76,6 @@
         //Reset Value
         document.querySelector('input[name=description]').value = "";
 
-      });
-    }
-
-    delIcon.className = 'fas fa-trash-alt';
-
-    //Apend child
-    descDiv.appendChild(descSpan);
-    iconDiv.appendChild(checkIcon);
-    iconDiv.appendChild(delIcon);
-
-    todoNode.appendChild(descDiv);
-    todoNode.appendChild(iconDiv);
-
-    //Fill information by todo object
-    descSpan.textContent = todo.description;
-
-    delIcon.addEventListener('click', function(event) {
-      var newState = todoFunctions.deleteTodo(state, todo.id);
-
-      update(newState);
-    });
-    /* mark btn */
-    checkIcon.addEventListener('click', function(event) {
-      var newState = todoFunctions.markTodo(state, todo.id);
-      update(newState);
-    });
-     // edit event lestener
-     descDiv.addEventListener("dblclick",function(event){
-      var inputNew = document.createElement('input');
-      descDiv.removeChild(descSpan);
-      descDiv.appendChild(inputNew);
-      inputNew.focus();
-      inputNew.addEventListener('blur',function(event){
-        descDiv.removeChild(inputNew);
-        descDiv.appendChild(descSpan);
-      });
-      inputNew.addEventListener('keydown',function(event){
-        if(event.key == "Enter"){
-          update(todoFunctions.editTodo(state,inputNew.value ,todo.id));
-        }
-      });
-    });
-
-    return todoNode;
-  };
-
-  // bind create todo form
-  if (addTodoForm) {
-    addTodoForm.addEventListener('submit', function(event) {
-      // https://developer.mozilla.org/en-US/docs/Web/Events/submit
-      // what does event.preventDefault do?
-      // what is inside event.target?
-      event.preventDefault();
-      const inputText = document.querySelector('input[name=description]').value;
-      
-      if(inputText){
-
-        console.log(inputText);
-        
-        var newState = todoFunctions.addTodo(state , inputText); // ?? change this!
-        update(newState);
-      }
-
-      // hint: todoFunctions.addTodo
-      //Reset Value
-      document.querySelector('input[name=description]').value = "";
-
     });
   }
   // add load();
@@ -162,7 +95,6 @@
     });
 
     // you may want to add a class for css
-   
     container.replaceChild(todoListNode, container.firstChild);
   };
 
