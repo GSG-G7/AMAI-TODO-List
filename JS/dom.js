@@ -57,6 +57,18 @@
       var newState = todoFunctions.markTodo(state, todo.id);
       update(newState);
     });
+     // edit event lestener
+     descDiv.addEventListener("dblclick",function(event){
+      var inputNew = document.createElement('input');
+      descDiv.removeChild(descSpan);
+      descDiv.appendChild(inputNew);
+      inputNew.addEventListener('keydown',function(event){
+        if(event.key == "Enter"){
+          update(todoFunctions.editTodo(state,inputNew.value ,todo.id));
+        }
+      });
+    });
+
     return todoNode;
   };
 
