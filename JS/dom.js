@@ -24,7 +24,8 @@
     const iconDiv   = document.createElement('DIV');
     const checkIcon = document.createElement('I');
     const delIcon   = document.createElement('I');
-
+    descDiv.classList.add('desc-div')
+    iconDiv.classList.add('icon-div');
     // add classes for css
     if(todo.done){
       checkIcon.className = "far fa-check-square";
@@ -62,6 +63,7 @@
       var inputNew = document.createElement('input');
       descDiv.removeChild(descSpan);
       descDiv.appendChild(inputNew);
+      inputNew.classList.add('editInput')
       inputNew.focus();
       inputNew.addEventListener('blur',function(event){
         descDiv.removeChild(inputNew);
@@ -117,7 +119,6 @@
     });
 
     // you may want to add a class for css
-   
     container.replaceChild(todoListNode, container.firstChild);
   };
 

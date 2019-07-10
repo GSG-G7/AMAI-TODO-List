@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.5)), url(../img/list.jpg);
+    background-size: cover;
+}
+
+ul {
+    list-style: none;
+}
+
+section {
+    max-width: 800px;
+    margin: 63px auto 0 auto;
+    border: 1px solid #ffffff;
+    border-bottom-left-radius: 80px;
+}
+.todoSec__title {
+    font-size: 2rem;
+    color: white;
+    font-family: 'Sniglet', cursive;
+    text-shadow: 2px 2px 3px orangered;
+}
+.todoSec{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    align-items: center;
+    height: 500px;
+    padding: 8px 10%;
+    overflow: auto;
+    box-shadow: 1px 0px 20px 1px wheat;
+    border-bottom-left-radius: 200px;
+}
+
+.todoSec__form {
+    margin: 20px 0;
+    width: 70%;
+}
+
+.todoSec__form input[type='text'] {
+    width: 80%;
+}
+
+.todoSec__form input[type='submit'] {
+    width: 18%;
+    margin-left: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    outline: 0;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #e75084;
+}
+.todoSec__form input[type='submit']:active {
+    background-color: #ec2f71;
+}
+
+.todoSec__form input {
+    padding:0.6rem;
+}
+
+.todoSec__title {
+    padding-top: 20px;
+}
+
+.todoSec__task {
+    width: 70%;
+}
+
+.todoSec__task > ul > li {
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(172, 172, 172);
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.todoSec__task .desc-div {
+    width: 80%;   
+    padding: 8px 10px;
+    box-shadow: 0 0 2px 1px rgb(22, 22, 22);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+.todoSec__task .editInput {
+    width: 100%;
+    padding: 0px 10px;
+    margin: 0%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.todoSec__task .icon-div {
+    width: 15%;
+}
+.icon-div i:first-child {
+    margin-right: 15px;
+}
