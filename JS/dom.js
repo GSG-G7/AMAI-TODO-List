@@ -1,7 +1,6 @@
 // part 2 linking it all together
 // The function here is called an iife,
 // it keeps everything inside hidden from the rest of our application
-const todoFunctions = require('./logic');
 (function() {
     // This is the dom node where we will keep our todo
     var container = document.getElementById('todo-container');
