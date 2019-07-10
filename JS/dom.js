@@ -62,6 +62,7 @@
       var inputNew = document.createElement('input');
       descDiv.removeChild(descSpan);
       descDiv.appendChild(inputNew);
+      inputNew.focus();
       inputNew.addEventListener('keydown',function(event){
         if(event.key == "Enter"){
           update(todoFunctions.editTodo(state,inputNew.value ,todo.id));
