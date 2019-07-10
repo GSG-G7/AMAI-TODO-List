@@ -40,7 +40,7 @@ var todoFunctions = {
         done :        false,
       };
       
-      return newTodos.concat(objCurr);
+      return [objCurr].concat(newTodos);
     },
     deleteTodo: function(todos, idToDelete) {
       const newTodos = todoFunctions.cloneArrayOfObjects(todos);
