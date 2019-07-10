@@ -119,7 +119,6 @@
     });
 
     // you may want to add a class for css
-   
     container.replaceChild(todoListNode, container.firstChild);
   };
 
