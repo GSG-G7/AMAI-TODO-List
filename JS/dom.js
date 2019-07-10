@@ -5,7 +5,8 @@
   // This is the dom node where we will keep our todo
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
-
+  var sortFormBtn = document.getElementById('add-todo input[type=button]');
+ 
   var state = [
     { id: -3, description: 'first todo' },
     { id: -2, description: 'second todo' },
@@ -96,11 +97,13 @@
         var newState = todoFunctions.addTodo(state , inputText); // ?? change this!
         update(newState);
       }
-
+      
       // hint: todoFunctions.addTodo
       //Reset Value
       document.querySelector('input[name=description]').value = "";
-
+      sortFormBtn.addEventListener('click',function(event){
+        update(todoFunctions.sortTodos(state,todoFunctions.sortFunction));
+      });
     });
   }
   // add load();
