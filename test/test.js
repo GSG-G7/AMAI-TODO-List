@@ -37,22 +37,22 @@ test("testing for delete", (t)=> {
 
 test("Test of the state array with addTodo function" , (t)=> {
     const expected1 = [
+        { id: 1, description: 'how are you', done: false},
         { id: -3, description: 'first todo', done: false},
         { id: -2, description: 'second todo', done: false},
         { id: -1, description: 'third todo', done: false},
-        { id: 1, description: 'how are you', done: false},
     ]
     const expected2 = [
+        { id: 2, description: 'thank you', done: false},
         { id: -3, description: 'first todo', done: false},
         { id: -2, description: 'second todo', done: false},
         { id: -1, description: 'third todo', done: false},
-        { id: 2, description: 'thank you', done: false},
     ]
     const expected3 = [
+        { id: 3, description: 'you are welcome', done: false},
         { id: -3, description: 'first todo', done: false},
         { id: -2, description: 'second todo', done: false},
         { id: -1, description: 'third todo', done: false},
-        { id: 3, description: 'you are welcome', done: false},
     ]
 
     const stateBeforeTest = todoFunctions.cloneArrayOfObjects(state);
@@ -70,7 +70,7 @@ test("testing for markTodo",(t)=>{
         { id: -3, description: 'first todo', done: false},
         { id: -2, description: 'second todo', done: false},
         { id: -1, description: 'third todo', done: true},
-    ]; 
+    ];
     const expected2 = [
         { id: -3, description: 'first todo', done: false},
         { id: -2, description: 'second todo', done: true},
