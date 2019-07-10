@@ -40,8 +40,6 @@
       //Fill information by todo object
       descSpan.textContent = todo.description;
   
-      // this adds the delete button
-      // var deleteButtonNode = document.createElement('button');
       delIcon.addEventListener('click', function(event) {
         var newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
@@ -60,12 +58,21 @@
         // https://developer.mozilla.org/en-US/docs/Web/Events/submit
         // what does event.preventDefault do?
         // what is inside event.target?
-  
-        var description = '?'; // event.target ....
+        event.preventDefault();
+        const inputText = document.querySelector('input[name=description]').value;
+        
+        if(inputText){
+
+          console.log(inputText);
+          
+          var newState = todoFunctions.addTodo(state , inputText); // ?? change this!
+          update(newState);
+        }
   
         // hint: todoFunctions.addTodo
-        var newState = []; // ?? change this!
-        update(newState);
+        //Reset Value
+        document.querySelector('input[name=description]').value = "";
+
       });
     }
     // add load();
