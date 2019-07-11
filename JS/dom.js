@@ -69,8 +69,8 @@
       inputNew.classList.add('editInput')
       inputNew.focus();
       inputNew.addEventListener('blur',function(event){
-        descDiv.removeChild(descSpan);
-        descDiv.appendChild(inputNew);
+        descDiv.removeChild(inputNew);
+        descDiv.appendChild(descSpan);
       });
       inputNew.addEventListener('keydown',function(event){
         if(event.key == "Enter"){
