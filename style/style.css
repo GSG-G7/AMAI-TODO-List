@@ -10,6 +10,7 @@ html {
 }
 body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.5)), url(../img/list.jpg);
+    background-repeat: no-repeat;
     background-size: cover;
 }
 
@@ -19,7 +20,7 @@ ul {
 
 section {
     max-width: 800px;
-    margin: 63px auto 0 auto;
+    margin: 63px auto 78px auto;
     border: 1px solid #ffffff;
     border-bottom-left-radius: 80px;
 }
@@ -121,6 +122,22 @@ section {
 }
 .icon-div i:first-child {
     margin-right: 15px;
+}
+
+@media only screen and (min-width: 320px) {
+    body {
+      background-color: lightblue;
+    }
+    .todoSec__task {
+        /* width: 70%; */
+        min-width: 80%;
+        padding: 1vh;
+    }
+    .todoSec {
+        
+        height: 93vh;
+    
+  }
 }
 .dialog {
     padding: 10px;
