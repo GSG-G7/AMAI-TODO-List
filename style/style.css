@@ -122,3 +122,7 @@ section {
 .icon-div i:first-child {
     margin-right: 15px;
 }
+.dialog {
+    padding: 10px;
+    margin:auto;
+}
