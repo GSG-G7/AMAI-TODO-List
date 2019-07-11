@@ -5,7 +5,9 @@
   // This is the dom node where we will keep our todo
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
-
+  var sortFormBtn = document.getElementById('sort');
+  var dialog = document.getElementById('dialog');
+ 
   var state = [
     { id: -3, description: 'first todo' },
     { id: -2, description: 'second todo' },
@@ -87,20 +89,22 @@
       // what does event.preventDefault do?
       // what is inside event.target?
       event.preventDefault();
-      const inputText = document.querySelector('input[name=description]').value;
+      const inputText = document.getElementById('input').value;
       
       if(inputText){
-
-        console.log(inputText);
-        
+        dialog.open = false;
         var newState = todoFunctions.addTodo(state , inputText); // ?? change this!
         update(newState);
+      } else {
+        dialog.open = true;
       }
-
+    
       // hint: todoFunctions.addTodo
       //Reset Value
       document.querySelector('input[name=description]').value = "";
-
+      sortFormBtn.addEventListener('click',function(event){
+        update(todoFunctions.sortTodos(state,todoFunctions.sortFunction));
+      });
     });
   }
   // add load();

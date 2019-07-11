@@ -44,31 +44,43 @@ section {
 
 .todoSec__form {
     margin: 20px 0;
-    width: 70%;
+    width: 71%;
 }
 
-.todoSec__form input[type='text'] {
-    width: 80%;
-}
+.todoSec__form input[type='button'] {
 
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
 .todoSec__form input[type='submit'] {
-    width: 18%;
-    margin-left: 0;
+ 
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    
+}
+.todoSec__form input[type='text'] {
+    width: 70%;
+    background-color: white;
+    color: black;
+}
+
+.todoSec__form input {
+    width: 14%;
+    margin-left: 0;
     outline: 0;
     color: #fff;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: bold;
     cursor: pointer;
-    background-color: #e75084;
+    background-color: #31363f;
 }
-.todoSec__form input[type='submit']:active {
+.todoSec__form input:active {
     background-color: #ec2f71;
 }
 
 .todoSec__form input {
-    padding:0.6rem;
+    padding: 0.4rem;
 }
 
 .todoSec__title {
@@ -126,4 +138,8 @@ section {
         height: 93vh;
     
   }
+}
+.dialog {
+    padding: 10px;
+    margin:auto;
 }
